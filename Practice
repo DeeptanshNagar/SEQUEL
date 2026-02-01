@@ -1,0 +1,42 @@
+CREATE DATABASE company;
+
+USE company;
+
+CREATE TABLE employee (
+	id INT PRIMARY KEY,
+    name VARCHAR(50),
+    salary INT NOT NULL
+);
+
+INSERT INTO employee
+(id, name, salary)
+VALUES
+(1, "adam", 25000),
+(2, "bob", 30000),
+(3, "casey", 40000);
+
+SELECT * FROM employee;
+
+-- Constraints
+CREATE TABLE temp1 (
+	id INT,
+    name VARCHAR(50),
+    age INT NOT NULL,
+    city VARCHAR(20),
+    -- PRIMARY KEY(id)
+    PRIMARY KEY(id, name)
+);
+
+INSERT INTO temp1 VALUES (101);
+INSERT INTO temp1 VALUES (101); 
+
+SELECT * FROM temp1;
+
+CREATE TABLE emp (
+	id INT,
+    salary INT DEFAULT 785000
+);
+DROP TABLE emp;
+
+INSERT INTO emp (id) VALUES (102);
+SELECT * FROM emp;
