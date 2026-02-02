@@ -144,4 +144,3 @@ INSERT INTO payment (customer_id, customer, mode, city) VALUES
 SELECT mode, COUNT(customer)
 FROM payment
 GROUP BY mode;
-
