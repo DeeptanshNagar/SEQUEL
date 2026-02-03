@@ -19,6 +19,63 @@ VALUES
 (105, 'emanuel', 12, 'F', 'Delhi'),
 (106, 'farah', 82, 'B', 'Delhi');
 
+-- 1:42:00 SKV
+-- How many students received each grade?
+SELECT grade, count(rollno)
+FROM student
+GROUP BY grade
+ORDER BY grade;
+
+-- HAVING CLAUSE
+-- cities in which student scores marks more than 90
+SELECT city, count(rollno)
+FROM student
+GROUP BY city
+HAVING max(marks) > 90;
+
+-- format
+SELECT city
+FROM student
+WHERE grade = "A"
+GROUP BY city
+HAVING max(marks) >= 93
+ORDER BY city DESC;
+
+-- UPDATE COMMAND
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE student
+SET grade = "O"
+WHERE grade = "A";
+
+SELECT * 
+FROM student;
+
+UPDATE student
+SET marks = 82
+WHERE rollno = 105;
+
+-- now marks are updated but grade is still F, we need to change
+UPDATE student
+SET grade = "B"
+WHERE marks BETWEEN 80 AND 90;
+
+-- incrementing everyone marks by 1
+UPDATE student
+SET marks = marks + 1;
+
+-- setting emanuel marks again to 12 for further understandings
+UPDATE student
+SET marks = 12
+WHERE rollno = 105;
+
+-- DELETE COMMAND
+DELETE FROM student
+WHERE marks < 33;
+
+SELECT * FROM student;
+-- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SELECT * FROM student;
 SELECT name,marks FROM student;
 SELECT city FROM student;
